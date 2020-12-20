@@ -11,6 +11,7 @@
       <th>Created Time</th>
       <th>Updated Time</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -22,6 +23,7 @@
       <td><%= board.created_at.to_s(:datetime_jp) %></td>
       <td><%= board.updated_at.to_s(:datetime_jp) %></td>
       <td><%= link_to '詳細', board %></td>
+      <td><%= link_to '削除', board, method: :delete %></td>
     </tr>
     <tr>
   <% end %>
