@@ -7,60 +7,24 @@
 <table class="ui striped table">
   <thead>
     <tr>
+      <th>ID</th>
       <th>Name</th>
-      <th>Date Joined</th>
-      <th>E-mail</th>
-      <th>Called</th>
+      <th>Title</th>
+      <th>Created Time</th>
+      <th>Updated Time</th>
     </tr>
   </thead>
   <tbody>
+  <% @boards.each do |board| %>
     <tr>
-      <td>John Lilki</td>
-      <td>September 14, 2013</td>
-      <td>jhlilk22@yahoo.com</td>
-      <td>No</td>
+      <td><%= board.id %></td>
+      <td><%= board.name %></td>
+      <td><%= board.title %></td>
+      <td><%= board.created_at.to_s(:datetime_jp) %></td>
+      <td><%= board.updated_at.to_s(:datetime_jp) %></td>
     </tr>
     <tr>
-      <td>Jamie Harington</td>
-      <td>January 11, 2014</td>
-      <td>jamieharingonton@yahoo.com</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>Jill Lewis</td>
-      <td>May 11, 2014</td>
-      <td>jilsewris22@yahoo.com</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>John Lilki</td>
-      <td>September 14, 2013</td>
-      <td>jhlilk22@yahoo.com</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td>John Lilki</td>
-      <td>September 14, 2013</td>
-      <td>jhlilk22@yahoo.com</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td>Jamie Harington</td>
-      <td>January 11, 2014</td>
-      <td>jamieharingonton@yahoo.com</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>Jill Lewis</td>
-      <td>May 11, 2014</td>
-      <td>jilsewris22@yahoo.com</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>John Lilki</td>
-      <td>September 14, 2013</td>
-      <td>jhlilk22@yahoo.com</td>
-      <td>No</td>
-    </tr>
+  <% end %>
+
   </tbody>
 </table>

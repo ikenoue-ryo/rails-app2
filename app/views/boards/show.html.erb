@@ -1,0 +1,28 @@
+<h1>詳細画面</h1>
+<a href="/boards">
+  <button class="ui right floated button">Back</button>
+</a>
+<br><br>
+
+<table class="ui striped table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Title</th>
+      <th>Created Time</th>
+      <th>Updated Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @board.id %></td>
+      <td><%= @board.name %></td>
+      <td><%= @board.title %></td>
+      <td><%= @board.created_at.to_s(:datetime_jp) %></td>
+      <td><%= @board.updated_at.to_s(:datetime_jp) %></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><%= simple_format(@board.body) %></p>
