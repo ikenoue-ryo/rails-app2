@@ -2,6 +2,9 @@
 <%= link_to 'New', new_board_path, class: 'ui right floated button' %>
 <br><br>
 
+<% if flash[:notice] %>
+  <div class="ui red message"><%= flash[:notice] %></div>
+<% end %>
 <table class="ui striped table">
   <thead>
     <tr>

@@ -5,4 +5,7 @@
 </a>
 <br><br>
 
+<% if flash[:notice] %>
+  <div class="ui blue message"><%= flash[:notice] %></div>
+  <% end %>
 <%= render partial: 'board', object: @board %>
