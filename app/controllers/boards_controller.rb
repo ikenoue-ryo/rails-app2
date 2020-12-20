@@ -32,13 +32,11 @@ class BoardsController < ApplicationController
 
   def update
     @board.update(board_params)
-
     redirect_to board
   end
 
   def destroy
-    @board.delete
-
+    @board.destroy
     redirect_to boards_path, flash: { notice: "「#{@board.title}」が削除されました" }
   end
 

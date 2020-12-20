@@ -1,20 +1,27 @@
-<div class="ui comments">
-  <div class="comment">
-    <a class="avatar">
-      <img src="https://image.flaticon.com/icons/png/512/1674/1674292.png">
-    </a>
-    <div class="content">
-      <a class="author"><%= comment.name %></a>
-      <div class="metadata">
-        <div class="date">1 day ago</div>
-      </div>
-      <div class="text">
-        <p><%= simple_format(comment.comment) %></p>
-        <p><%= link_to '削除', comment, method: :delete, data: { confirm: '削除してもよろしいですか？' } %></p>
-      </div>
-      <div class="actions">
-        <a class="reply">Reply</a>
+<% if comment.comment %>
+  <hr>
+  <div class="ui comments">
+    <div class="comment">
+      <a class="avatar">
+        <img src="https://image.flaticon.com/icons/png/512/1674/1674292.png">
+      </a>
+      <div class="content">
+        <a class="author"><%= comment.name %></a>
+        <div class="metadata">
+          <div class="date">1 day ago</div>
+        </div>
+        <div class="text">
+          <p><%= simple_format(comment.comment) %></p>
+          <p><%= link_to '削除', comment, method: :delete, data: { confirm: '削除してもよろしいですか？' } %></p>
+
+        </div>
+        <div class="actions">
+          <a class="reply">Reply</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% else %>
+<hr>
+<p>コメントはまだありません。</p>
+<% end %>
