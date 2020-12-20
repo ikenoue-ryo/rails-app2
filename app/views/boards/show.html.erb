@@ -7,7 +7,8 @@
 
 <% if flash[:notice] %>
   <div class="ui blue message"><%= flash[:notice] %></div>
-  <% end %>
+ <% end %>
+
 <%= render partial: 'board', object: @board %>
 
 <%= render @board.comments %>
