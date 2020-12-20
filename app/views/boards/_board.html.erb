@@ -1,7 +1,3 @@
-<h1>掲示板一覧</h1>
-<%= link_to 'New', new_board_path, class: 'ui right floated button' %>
-<br><br>
-
 <table class="ui striped table">
   <thead>
     <tr>
@@ -10,21 +6,17 @@
       <th>Title</th>
       <th>Created Time</th>
       <th>Updated Time</th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
-  <% @boards.each do |board| %>
     <tr>
       <td><%= board.id %></td>
       <td><%= board.name %></td>
       <td><%= board.title %></td>
       <td><%= board.created_at.to_s(:datetime_jp) %></td>
       <td><%= board.updated_at.to_s(:datetime_jp) %></td>
-      <td><%= link_to '詳細', board %></td>
     </tr>
-    <tr>
-  <% end %>
-
   </tbody>
 </table>
+
+<p><%= simple_format(board.body) %></p>
