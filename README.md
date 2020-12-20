@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## バージョン
+- ruby: 2.6.5
+- rails: 5.2.2
+- pry-byebug: 3.9
 
-Things you may want to cover:
+## コマンド
+- DB作成: docker-compose run web bundle exec rake db:create
+- migrate: docker-compose run web bundle exec rake db:migrate
+- install: docker-compose run web bundle install
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- コントローラ作成 自分でファイルを作る
+- viewを作成　自分でディレクトリとファイルを作る
