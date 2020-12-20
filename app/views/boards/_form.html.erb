@@ -13,6 +13,15 @@
     </div>
   </div>
 
+タグ
+<%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+  <%= tag.label do %>
+    <%= tag.check_box %>
+    <%= tag.text %>
+  <% end %>
+<% end %>
+
+
   <div class="ui form">
     <div class="field">
       <label>Text</label>

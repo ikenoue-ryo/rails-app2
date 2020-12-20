@@ -32,7 +32,7 @@ class BoardsController < ApplicationController
 
   def update
     @board.update(board_params)
-    redirect_to board
+    redirect_to @board
   end
 
   def destroy
@@ -43,7 +43,7 @@ class BoardsController < ApplicationController
   private
 
   def board_params
-    params.require(:board).permit(:name, :title, :body)
+    params.require(:board).permit(:name, :title, :body, tag_ids: [])
   end
 
   def set_target_board
