@@ -9,3 +9,7 @@
   <div class="ui blue message"><%= flash[:notice] %></div>
   <% end %>
 <%= render partial: 'board', object: @board %>
+
+<%= render @board.comments %>
+
+<%= render partial: 'comments/form', locals: { comment: @comment } %>

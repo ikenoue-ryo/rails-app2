@@ -1,0 +1,19 @@
+<div class="ui comments">
+  <div class="comment">
+    <a class="avatar">
+      <img src="https://image.flaticon.com/icons/png/512/1674/1674292.png">
+    </a>
+    <div class="content">
+      <a class="author"><%= comment.name %></a>
+      <div class="metadata">
+        <div class="date">1 day ago</div>
+      </div>
+      <div class="text">
+        <p><%= simple_format(comment.comment) %></p>
+      </div>
+      <div class="actions">
+        <a class="reply">Reply</a>
+      </div>
+    </div>
+  </div>
+</div>
