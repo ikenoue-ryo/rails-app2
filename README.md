@@ -14,6 +14,8 @@
 - モデル作成: docker-compose run web  bundle exec rails g model comment board:references name:string comment:text(notnull付与する)
 - コントローラ作成： docker-compose exec web rails g controller comments create destroy --skip-template-engine
 - 多対多の中間テーブル作成: docker-compose exec web bundle exec rails g model board_tag_relation board:references tag:references
+- gemインストール1: docker-compose exec web bundle
+- gemインストール2: docker-compose restart web
 
 - コントローラ作成 自分でファイルを作る
 - viewを作成　自分でディレクトリとファイルを作る
