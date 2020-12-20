@@ -1,28 +1,15 @@
 <h1>詳細画面</h1>
 <a href="/boards">
-  <button class="ui right floated button">Back</button>
+  <%= link_to 'Edit', edit_board_path(@board), class: 'ui right floated button' %>
+  <%= link_to 'List', boards_path, class: 'ui right floated button' %>
 </a>
 <br><br>
 
-<table class="ui striped table">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Title</th>
-      <th>Created Time</th>
-      <th>Updated Time</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= @board.id %></td>
-      <td><%= @board.name %></td>
-      <td><%= @board.title %></td>
-      <td><%= @board.created_at.to_s(:datetime_jp) %></td>
-      <td><%= @board.updated_at.to_s(:datetime_jp) %></td>
-    </tr>
-  </tbody>
-</table>
+<% if flash[:notice] %>
+  <div class="ui blue message"><%= flash[:notice] %></div>
+  <% end %>
+<%= render partial: 'board', object: @board %>
 
-<p><%= simple_format(@board.body) %></p>
+<%= render @board.comments %>
+
+<%= render partial: 'comments/form', locals: { comment: @comment } %>
