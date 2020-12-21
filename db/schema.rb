@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_21_054347) do
+ActiveRecord::Schema.define(version: 2020_12_21_084654) do
 
   create_table "board_tag_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "board_id"
@@ -30,11 +30,11 @@ ActiveRecord::Schema.define(version: 2020_12_21_054347) do
     t.datetime "updated_at", null: false
     t.string "furigana"
     t.integer "user_id"
+    t.integer "age"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "board_id"
-    t.string "name", null: false
     t.text "comment", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -11,9 +11,6 @@
 
 <%= render partial: 'board', object: @board %>
 
-これ1-> <%= @board.user_id %>
-これ2-> <%= @user.name %>
-
 <%= render @board.comments %>
 
 <%= render partial: 'comments/form', locals: { comment: @comment } %>

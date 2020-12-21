@@ -3,6 +3,7 @@
 # Table name: boards
 #
 #  id         :bigint           not null, primary key
+#  age        :integer
 #  body       :text(65535)
 #  furigana   :string(255)
 #  name       :string(255)
