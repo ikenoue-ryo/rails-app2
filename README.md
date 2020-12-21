@@ -1,11 +1,14 @@
-# README
-
 ## バージョン
 - ruby: 2.6.5
 - rails: 5.2.2
-- pry-byebug: 3.9
+<!-- - pry-byebug: 3.9 -->
 
-## コマンド
+## 起動コマンド
+- docker-compose build
+- docker-compose up -d
+
+<!-- 
+## 個人メモ
 - DB作成: docker-compose run web bundle exec rake db:create
 - migrate: docker-compose run web bundle exec rake db:migrate
 - install: docker-compose run web bundle install
@@ -28,4 +31,4 @@
 - メモ
 マイグレーションでカラムを追加
 1. docker-compose run web  bundle exec rails g migration AddColumnToUserid user_id:integer
-2. 作成ファイルのテーブル名とあっているかを確認して、db:migrate
+2. 作成ファイルのテーブル名とあっているかを確認して、db:migrate -->
