@@ -1,0 +1,17 @@
+<h1>ログイン</h1>
+
+<%= form_with scope: :session, url: login_path do |f| %>
+  <div class="ui small form">
+  <div class="two fields">
+    <div class="field">
+      <label>ユーザー名</label>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <label>パスワード</label>
+      <%= f.password_field :password %>
+    </div>
+  </div>
+
+  <%= f.submit 'ログイン', class: 'ui submit button' %>
+<% end %>

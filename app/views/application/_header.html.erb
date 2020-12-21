@@ -11,11 +11,14 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Pricing</a>
       </li>
-      <li class="nav-item dropdown">
+    </ul>
+  </div>
+  <ul class="nav justify-content-end">
+    <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Profile
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
           <% if @current_user %>
             <%= link_to 'MyPage', mypage_path, class: "dropdown-item" %>
             <%= link_to 'LogOut', logout_path, method: :delete, class: "dropdown-item" %>
@@ -25,6 +28,7 @@
           <% end %>
         </div>
       </li>
-    </ul>
-  </div>
+  </ul>
+  
+
 </nav>
