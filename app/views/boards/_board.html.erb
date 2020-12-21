@@ -3,16 +3,19 @@
     <tr>
       <th>ID</th>
       <th>Name</th>
+      <th>Furigana</th>
       <th>Title</th>
       <th>Tag</th>
       <th>Created Time</th>
       <th>Updated Time</th>
+      <th>Author</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><%= board.id %></td>
       <td><%= board.name %></td>
+      <td><%= board.furigana %></td>
       <td><%= board.title %></td>
       <td>
         <% board.tags.each do |tag| %>
@@ -23,6 +26,7 @@
       </td>
       <td><%= board.created_at.to_s(:datetime_jp) %></td>
       <td><%= board.updated_at.to_s(:datetime_jp) %></td>
+      <td><%= @user.name %></td>
     </tr>
   </tbody>
 </table>

@@ -7,6 +7,7 @@ ja:
         password_confirmation: パスワード(確認)
       board:
         name: 名前
+        furigana: ふりがな
         title: タイトル
         body: 本文
       comment:
