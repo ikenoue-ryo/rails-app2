@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id              :bigint           not null, primary key
+#  birthday        :date
 #  name            :string(255)      not null
 #  password_digest :string(255)      not null
 #  created_at      :datetime         not null
@@ -24,5 +25,10 @@ class User < ApplicationRecord
       message: 'は小文字英数字で入力してください'
     }
   validates :password,
-    length: { minimum: 8 } 
+    length: { minimum: 8 }
+
+    def age
+      now = Time.zone.now
+      (now.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000
+    end
 end
