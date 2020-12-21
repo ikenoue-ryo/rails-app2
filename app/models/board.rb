@@ -3,11 +3,13 @@
 # Table name: boards
 #
 #  id         :bigint           not null, primary key
+#  address    :string(255)
 #  age        :integer
 #  body       :text(65535)
+#  email      :string(255)
 #  furigana   :string(255)
 #  name       :string(255)
-#  string     :string(255)
+#  tel        :string(255)
 #  title      :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -23,5 +25,8 @@ class Board < ApplicationRecord
   validates :furigana, presence: true, length: { maximum: 20 }
   validates :age, length: { maximum: 3 }
   validates :title, presence: true, length: { maximum: 30 }
+  validates :address, length: { maximum: 100 }
+  validates :tel, length: { maximum: 15 }
+  validates :email, length: { maximum: 30 }
   validates :body, presence: true, length: { maximum: 1000 }
 end
