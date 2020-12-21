@@ -31,4 +31,7 @@
 - メモ
 マイグレーションでカラムを追加
 1. docker-compose run web bundle exec rails g migration AddColumnToUserid user_id:integer
-2. 作成ファイルのテーブル名とあっているかを確認して、db:migrate -->
+2. 作成ファイルのテーブル名とあっているかを確認して、db:migrate
+
+ルート： http://localhost:3001/rails/info/routes
+ -->
