@@ -16,6 +16,10 @@
 - 多対多の中間テーブル作成: docker-compose exec web bundle exec rails g model board_tag_relation board:references tag:references
 - gemインストール1: docker-compose exec web bundle
 - gemインストール2: docker-compose restart web
+- Rspecテスト: docker-compose exec web bundle exec rails g rspec:model User
+- テスト実行: docker-compose exec web bundle exec rspec ./spec/models/
+- オプション付き: docker-compose exec web bundle exec rspec -f d spec/models/
+- コントローラテスト: docker-compose exec web rspec -f d spec/controllers/
 
 - コントローラ作成 自分でファイルを作る
 - viewを作成　自分でディレクトリとファイルを作る
