@@ -6,17 +6,16 @@
         <img src="https://image.flaticon.com/icons/png/512/1674/1674292.png">
       </a>
       <div class="content">
-        <a class="author"><%= comment.name %></a>
+        <a class="author"><%= @user.name %></a>
         <div class="metadata">
           <div class="date">1 day ago</div>
+          <p><%= link_to '削除', comment, method: :delete, data: { confirm: 'コメントを削除しますか？' } %></p>
         </div>
         <div class="text">
           <p><%= simple_format(comment.comment) %></p>
-          <p><%= link_to '削除', comment, method: :delete, data: { confirm: '削除してもよろしいですか？' } %></p>
-
         </div>
         <div class="actions">
-          <a class="reply">Reply</a>
+          <%# <a class="reply">Reply</a> %>
         </div>
       </div>
     </div>

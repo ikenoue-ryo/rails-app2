@@ -1,14 +1,16 @@
+<h2>概要</h2>
 <table class="ui striped table">
   <thead>
     <tr>
       <th>ID</th>
       <th>Name</th>
       <th>Furigana</th>
-      <th>Title</th>
+      <th>Age</th>
+      <th>Condition</th>
       <th>Tag</th>
       <th>Created Time</th>
       <th>Updated Time</th>
-      <th>Author</th>
+      <th>Reception</th>
     </tr>
   </thead>
   <tbody>
@@ -16,6 +18,7 @@
       <td><%= board.id %></td>
       <td><%= board.name %></td>
       <td><%= board.furigana %></td>
+      <td><%= board.age %></td>
       <td><%= board.title %></td>
       <td>
         <% board.tags.each do |tag| %>
@@ -31,4 +34,58 @@
   </tbody>
 </table>
 
-<p><%= simple_format(board.body) %></p>
+<h2>詳細情報</h2>
+<table class="ui celled table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Info</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="Name">Name</td>
+      <td data-label="Name"><%= board.name %></td>
+    </tr>
+    <tr>
+      <td data-label="Furigana">Furigana</td>
+      <td data-label="Furigana"><%= board.furigana %></td>
+    </tr>
+    <tr>
+      <td data-label="Age">Age</td>
+      <td data-label="Age"><%= board.age %>歳</td>
+    </tr>
+    <tr>
+      <td data-label="Condition">Condition</td>
+      <td data-label="Condition"><%= board.title %></td>
+    </tr>
+    <tr>
+      <td data-label="Name">Address</td>
+      <td data-label="Address"><%= board.address %></td>
+    </tr>
+    <tr>
+      <td data-label="Name">Tel</td>
+      <td data-label="Tel"><%= board.tel %></td>
+    </tr>
+    <tr>
+      <td data-label="Name">E-mail</td>
+      <td data-label="E-mail"><%= board.email %></td>
+    </tr>
+    <tr>
+      <td data-label="Impression">Impression</td>
+      <td data-label="Impression"><%= simple_format(board.body) %></td>
+    </tr>
+    <tr>
+      <td data-label="Reception">Reception</td>
+      <td data-label="Reception"><%= @user.name %></td>
+    </tr>
+    <tr>
+      <td data-label="Created">Created</td>
+      <td><%= board.created_at.to_s(:datetime_jp) %></td>
+    </tr>
+    <tr>
+      <td data-label="Update">Update</td>
+      <td><%= board.updated_at.to_s(:datetime_jp) %></td>
+    </tr>
+  </tbody>
+</table>
