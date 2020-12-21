@@ -2,25 +2,33 @@
 
 <%= form_with model: board do |f| %>
   <div class="ui small form">
-  <div class="two fields">
-    <div class="field">
-      <label>First Name</label>
-      <%= f.text_field :name %>
-    </div>
-    <div class="field">
-      <label>Last Name</label>
-      <%= f.text_field :title %>
+    <div class="two fields">
+      <div class="field">
+        <label>Name</label>
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <label>ふりがな</label>
+        <%= f.text_field :furigana %>
+      </div>
+      <div class="field">
+        <label>Title</label>
+        <%= f.text_field :title %>
+      </div>
     </div>
   </div>
 
-タグ
-<%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
-  <%= tag.label do %>
-    <%= tag.check_box %>
-    <%= tag.text %>
+<div class="form-group">
+  <p>Tag</p>
+  <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+    <div class="form-check">
+      <%= tag.label do %>
+        <%= tag.check_box class: 'form-check-input' %>
+        <%= tag.text %>
+      <% end %>
+    </div>
   <% end %>
-<% end %>
-
+</div>
 
   <div class="ui form">
     <div class="field">

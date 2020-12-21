@@ -3,7 +3,7 @@ class BoardsController < ApplicationController
 
   def index
     @boards = params[:tag_id].present? ? Tag.find(params[:tag_id]).boards : Board.all
-    @boards = @boards.page(params[:page])
+    @boards = @boards.page(params[:page]).order('created_at DESC')
   end
 
   def new
@@ -26,6 +26,7 @@ class BoardsController < ApplicationController
   def show
     @comment = Comment.new(board_id: @board.id)
     @comment = @board.comments.new
+    @user = User.find_by(id: @board.user_id)
   end
 
   def edit
@@ -44,7 +45,7 @@ class BoardsController < ApplicationController
   private
 
   def board_params
-    params.require(:board).permit(:name, :title, :body, tag_ids: [])
+    params.require(:board).permit(:name, :furigana, :title, :body, tag_ids: []).merge(user_id: current_user.id)
   end
 
   def set_target_board
