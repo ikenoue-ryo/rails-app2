@@ -7,8 +7,9 @@ class BoardsController < ApplicationController
     @boards = @boards.page(params[:page]).order('created_at DESC')
 
     @boards_order = Board.all.order(sort_column + ' ' + sort_direction)
-    # @likes_count = Board.where(booking: @board.id).count
     @booking_count = Board.all.count(:booking)
+    @all_count = Board.all.count(:id)
+    @un_booking_count = @all_count - @booking_count  
   end
 
   def new

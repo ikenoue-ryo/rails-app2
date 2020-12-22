@@ -14,7 +14,19 @@
   <% end %>
 </div>
 
-<span class="ml-3">現在の予約件数：<%= @booking_count %> 件</span>
+<a class="ui blue label book_label">
+  患者数 <%= @all_count %> 名
+</a>
+<a class="ui teal label book_label">
+  予約済 <%= @booking_count %> 件
+</a>
+<a class="ui grey label book_label">
+  未定 <%= @un_booking_count %> 件
+</a>
+<a class="ui yellow label book_label">
+  キャンセル 2 件
+</a>
+
 <%= link_to 'New', new_board_path, class: 'ui right floated button' %>
 <br><br>
 
