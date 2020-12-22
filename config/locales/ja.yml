@@ -13,6 +13,11 @@ ja:
       comment:
         name: 名前
         comment: コメント
+      info:
+        name: 名前
+        title: タイトル
+        body: 本文
+        youtube_url: URL
   views:
     pagination:
       first: 最初

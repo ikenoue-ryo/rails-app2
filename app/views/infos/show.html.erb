@@ -1,0 +1,12 @@
+<h1>Doctor詳細画面</h1>
+<a href="/infos">
+  <%= link_to 'Edit', edit_info_path(@info), class: 'ui right floated button' %>
+  <%= link_to 'List', infos_path, class: 'ui right floated button' %>
+</a>
+<br><br>
+
+<% if flash[:notice] %>
+  <div class="ui blue message"><%= flash[:notice] %></div>
+ <% end %>
+ 
+<%= render partial: 'info', object: @info %>

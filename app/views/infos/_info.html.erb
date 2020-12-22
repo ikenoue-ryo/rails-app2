@@ -1,0 +1,45 @@
+<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @info.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h2>概要</h2>
+<table class="ui striped table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Title</th>
+      <th>Body</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= info.name %></td>
+      <td><%= info.title %></td>
+      <td><%= info.body %></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>詳細情報</h2>
+<table class="ui celled table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Info</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <tr>
+      <td data-label="Name">Name</td>
+      <td data-label="Name"><%= info.name %></td>
+    </tr>
+    <tr>
+      <td data-label="Title">Title</td>
+      <td data-label="Title"><%= info.title %></td>
+    </tr>
+    <tr>
+      <td data-label="Text">Text</td>
+      <td data-label="Text"><%= info.body %></td>
+    </tr>
+  </tbody>
+</table>

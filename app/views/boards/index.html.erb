@@ -90,7 +90,6 @@
   <div class="ui red message"><%= flash[:notice] %></div>
 <% end %>
 
-
 <table class="ui selectable striped table">
   <thead>
     <tr>
@@ -130,9 +129,7 @@
       <td><%= link_to '詳細', board %></td>
       <td><%= link_to '削除', board, method: :delete %></td>
     </tr>
-    <tr>
   <% end %>
-
   </tbody>
 </table>
 
@@ -140,26 +137,15 @@
 <br><br>
 
 
-
-
-
-
-
-
-
-
-
-
 <script>
-$(function(){
-    $('.js-modal-open').on('click',function(){
-        $('.js-modal').fadeIn();
-        return false;
-    });
-    $('.js-modal-close').on('click',function(){
-        $('.js-modal').fadeOut();
-        return false;
-    });
-});
-
+  $(function(){
+      $('.js-modal-open').on('click',function(){
+          $('.js-modal').fadeIn();
+          return false;
+      });
+      $('.js-modal-close').on('click',function(){
+          $('.js-modal').fadeOut();
+          return false;
+      });
+  });
 </script>
