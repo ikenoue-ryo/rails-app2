@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   resources :comments, only: %i[create destroy]
   
   resources :infos
+  resources :plans
 
 end
