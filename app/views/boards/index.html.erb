@@ -1,6 +1,6 @@
 <h1>診察一覧</h1>
 
-<div class="m1-auto boards__linkBox text-left">
+<div class="m1-auto boards__linkBox text-left tag_search">
   <%= form_with url: boards_path, method: :get, class: 'boards__searchForm' do %>
 
     <%= select_tag :tag_id,
@@ -12,7 +12,76 @@
                   }
     %>
   <% end %>
+
+
+  <div class="content">
+    <a class="js-modal-open ui blue label book_label" href="">
+      患者数 <%= @all_count %> 名
+    </a>
+  </div>
+  <div class="modal js-modal">
+    <div class="modal__bg js-modal-close"></div>
+      <div class="modal__content">
+        <div>
+          <table class="ui selectable striped table">
+            <thead>
+              <tr>
+                <th><%= sortable "id", "ID" %></th>
+                <th><%= sortable "name", "Name" %></th>
+                <th><%= sortable "age", "Age" %></th>
+                <th><%= sortable "name", "Tag" %></th>
+                <th><%= sortable "booking", "Booking" %></th>
+                <th><%= sortable "title", "Condition" %></th>
+                <th><%= sortable "updated_at", "Updated Time" %></th>
+                <th><%= sortable "user_id", "Reception" %></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @boards_order.each do |board| %>
+              <tr>
+                <td><%= board.id %></td>
+                <td><%= board.name %></td>
+                <td><%= board.age %></td>
+                <td>
+                  <% board.tags.each do |tag| %>
+                    <div class="mini ui button">
+                      <%= tag.name %>
+                    </div>
+                  <% end %>
+                </td>
+                <td>
+                  <% if board.booking %>
+                    <%= board.booking.strftime('%m/%d') %>
+                  <% end %>
+                </td>
+                <td><%= board.title %></td>
+                <td><%= board.updated_at.to_s(:datetime_jp) %></td>
+                <td><%= board.user_id %></td>
+                <td><%= link_to '詳細', board %></td>
+                <td><%= link_to '削除', board, method: :delete %></td>
+              </tr>
+              <tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <a class="js-modal-close" href="">閉じる</a>
+    </div>
+  </div>
 </div>
+
+
+<a class="ui teal label book_label">
+  予約済 <%= @booking_count %> 件
+</a>
+<a class="ui grey label book_label">
+  未定 <%= @un_booking_count %> 件
+</a>
+<a class="ui yellow label book_label">
+  キャンセル 2 件
+</a>
 
 <%= link_to 'New', new_board_path, class: 'ui right floated button' %>
 <br><br>
@@ -20,7 +89,6 @@
 <% if flash[:notice] %>
   <div class="ui red message"><%= flash[:notice] %></div>
 <% end %>
-
 
 <table class="ui selectable striped table">
   <thead>
@@ -61,11 +129,23 @@
       <td><%= link_to '詳細', board %></td>
       <td><%= link_to '削除', board, method: :delete %></td>
     </tr>
-    <tr>
   <% end %>
-
   </tbody>
 </table>
 
 <%= paginate @boards %>
 <br><br>
+
+
+<script>
+  $(function(){
+      $('.js-modal-open').on('click',function(){
+          $('.js-modal').fadeIn();
+          return false;
+      });
+      $('.js-modal-close').on('click',function(){
+          $('.js-modal').fadeOut();
+          return false;
+      });
+  });
+</script>

@@ -1,0 +1,38 @@
+<h1>Doctor's Info</h1>
+
+<%= link_to 'New', new_info_path, class: 'ui right floated button' %>
+<br><br>
+
+<% if flash[:notice] %>
+  <div class="ui red message"><%= flash[:notice] %></div>
+<% end %>
+
+<table class="ui selectable striped table">
+  <thead>
+    <tr>
+      <th>あああ</th>
+      <th>いいい</th>
+      <th>ううう</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @infos.each do |info| %>
+    <tr>
+      <td>
+        <iframe width="300" src="https://www.youtube.com/embed/<%= info.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </td>
+      <td><%= info.title %></td>
+      <td><%= info.name %></td>
+      <td><%= info.body %></td>
+      <td><%= link_to '詳細', info %></td>
+      <td><%= link_to '削除', info, method: :delete %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @infos %>
+<br><br>

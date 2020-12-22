@@ -46,8 +46,12 @@
     <tr>
       <td data-label="Booking">予約日</td>
       <td>
-        <%= board.booking.strftime('%m/%d') %>
-        <%= board.booking_time.strftime('%H:%M') %>
+        <% if board.booking %>
+          <%= board.booking.strftime('%m/%d') %>
+          <%= board.booking_time.strftime('%H:%M') %>
+        <% else %>
+          -
+        <% end %>
       </td>
     </tr>
     <tr>
