@@ -1,2 +1,88 @@
 <h1>マイページ</h1>
+<%# 
+<div class="ui grid profile">
+  <div class="four wide column">
+    <div class="img_class clearfix">
+      <img id="img1"><br><br>
+      <label for="file_photo" id="file_label">
+        Main Photo
+        <input type="file" id="file_photo" style="display:none;">
+      </label>
+    </div>
+  </div>
+
+  <div class="twelve wide column">
+    <div class="ui message">
+      <div class="header">
+        Doctor です。よろしくお願いします！
+      </div>
+      <ul class="list">
+        <li>いつも元気で明るい</li>
+        <li>おしゃべりが好きですのでどんどん話しかけてもらえると助かります！</li>
+        <li>性格は、几帳面な方ですが、たまにど忘れすることがあります。</li>
+        <li>ご迷惑をおかけしますが、よろしくお願いします！</li>
+      </ul>
+    </div>
+  </div>
+</div> %>
 <%= @current_user.name %>
+
+
+<h2>概要</h2>
+<table class="ui striped table">
+  <thead>
+    <tr>
+      <th>メモ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>あ</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>詳細情報</h2>
+<table class="ui celled table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Info</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="Name">Name</td>
+      <td data-label="Name">あああ</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<script>
+$(function(){
+  $('#file_photo').change(function(e){
+    //ファイルオブジェクトを取得する
+    var file = e.target.files[0];
+    var reader = new FileReader();
+
+    //画像でない場合は処理終了
+    if(file.type.indexOf("image") < 0){
+      alert("画像ファイルを指定してください。");
+      return false;
+    }
+
+    //アップロードした画像を設定する
+    reader.onload = (function(file){
+      return function(e){
+        $("#img1").attr("src", e.target.result);
+        $("#img1").attr("title", file.name);
+        $("#file_label").remove();
+      };
+    })(file);
+    reader.readAsDataURL(file);
+  });
+});
+
+</script>

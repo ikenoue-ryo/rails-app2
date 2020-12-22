@@ -10,9 +10,12 @@
   </head>
 
   <body>
-  <%=render 'header' %>
-  <div class="ui container">
-    <%= yield %>
-  </div>
+    <div class="footerFixed">
+      <%=render 'header' %>
+        <div class="ui container">
+          <%= yield %>
+        </div>
+      <%=render 'footer' %>
+    </div>
   </body>
 </html>

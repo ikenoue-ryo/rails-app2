@@ -1,4 +1,4 @@
-<h1>掲示板一覧</h1>
+<h1>診察一覧</h1>
 
 <div class="m1-auto boards__linkBox text-left">
   <%= form_with url: boards_path, method: :get, class: 'boards__searchForm' do %>
@@ -20,22 +20,25 @@
 <% if flash[:notice] %>
   <div class="ui red message"><%= flash[:notice] %></div>
 <% end %>
+
+
 <table class="ui selectable striped table">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Tag</th>
-      <th>Title</th>
-      <th>Updated Time</th>
-      <th>Author</th>
+      <th><%= sortable "id", "ID" %></th>
+      <th><%= sortable "name", "Name" %></th>
+      <th><%= sortable "age", "Age" %></th>
+      <th><%= sortable "name", "Tag" %></th>
+      <th><%= sortable "booking", "Booking" %></th>
+      <th><%= sortable "title", "Condition" %></th>
+      <th><%= sortable "updated_at", "Updated Time" %></th>
+      <th><%= sortable "user_id", "Reception" %></th>
       <th></th>
       <th></th>
     </tr>
   </thead>
   <tbody>
-  <% @boards.each do |board| %>
+  <% @boards_order.each do |board| %>
     <tr>
       <td><%= board.id %></td>
       <td><%= board.name %></td>
@@ -45,6 +48,11 @@
           <div class="mini ui button">
             <%= tag.name %>
           </div>
+        <% end %>
+      </td>
+      <td>
+        <% if board.booking %>
+          <%= board.booking.strftime('%m/%d') %>
         <% end %>
       </td>
       <td><%= board.title %></td>

@@ -14,3 +14,53 @@
   display: inline-block;
   width: auto;
 }
+
+label.booking{
+  display: block;
+  margin: 0em 0em 0.28571429rem 0em;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 0.92857143em;
+  font-weight: bold;
+  text-transform: none;
+}
+
+.datetimepicker-input{
+  height: 35px;
+  border-radius: 5px;
+  margin-right: 3px;
+  font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif!important;
+}
+
+input[type=checkbox] {
+  transform: scale(1.3);
+}
+
+.datepicker-days {
+  font-size: 93%;
+}
+.datepicker-days th.dow:first-child,
+.datepicker-days td:first-child {
+  color: #f00;
+}
+.datepicker-days th.dow:last-child,
+.datepicker-days td:last-child {
+  color: #00f;
+}
+.bootstrap-datetimepicker-widget table td.active,
+.bootstrap-datetimepicker-widget table td.active:hover {
+  background-color: #337ab7;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+ 
+.bootstrap-datetimepicker-widget table td span.active,
+.bootstrap-datetimepicker-widget table td i.active {
+  background-color: #337ab7;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.input-group-text {
+  padding: .1.15rem .75rem;
+  font-size: .9rem;
+  height: calc(2em + 2px + 0.5rem);
+}

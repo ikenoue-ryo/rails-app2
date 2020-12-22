@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_21_101305) do
+ActiveRecord::Schema.define(version: 2020_12_22_014135) do
 
   create_table "board_tag_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "board_id"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 2020_12_21_101305) do
     t.string "address"
     t.string "email"
     t.string "tel"
+    t.date "booking"
+    t.time "booking_time"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

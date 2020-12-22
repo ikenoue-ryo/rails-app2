@@ -1,9 +1,12 @@
 class BoardsController < ApplicationController
   before_action :set_target_board, only: %i[show edit update destroy]
+  helper_method :sort_column, :sort_direction
 
   def index
     @boards = params[:tag_id].present? ? Tag.find(params[:tag_id]).boards : Board.all
     @boards = @boards.page(params[:page]).order('created_at DESC')
+
+    @boards_order = Board.all.order(sort_column + ' ' + sort_direction)
   end
 
   def new
@@ -45,10 +48,18 @@ class BoardsController < ApplicationController
   private
 
   def board_params
-    params.require(:board).permit(:name, :furigana, :age, :address, :tel, :email, :title, :body, tag_ids: []).merge(user_id: current_user.id)
+    params.require(:board).permit(:name, :furigana, :age, :address, :tel, :email, :title, :body, :booking, :booking_time, tag_ids: []).merge(user_id: current_user.id)
   end
 
   def set_target_board
     @board = Board.find(params[:id])
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+
+  def sort_column
+    Board.column_names.include?(params[:sort]) ? params[:sort] : "name"
   end
 end
