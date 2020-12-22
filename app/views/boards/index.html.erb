@@ -20,22 +20,24 @@
 <% if flash[:notice] %>
   <div class="ui red message"><%= flash[:notice] %></div>
 <% end %>
+
+
 <table class="ui selectable striped table">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Tag</th>
-      <th>Condition</th>
-      <th>Updated Time</th>
-      <th>Author</th>
+      <th><%= sortable "id", "ID" %></th>
+      <th><%= sortable "name", "Name" %></th>
+      <th><%= sortable "age", "Age" %></th>
+      <th><%= sortable "name", "Tag" %></th>
+      <th><%= sortable "title", "Condition" %></th>
+      <th><%= sortable "updated_at", "Updated Time" %></th>
+      <th><%= sortable "user_id", "Author" %></th>
       <th></th>
       <th></th>
     </tr>
   </thead>
   <tbody>
-  <% @boards.each do |board| %>
+  <% @boards_order.each do |board| %>
     <tr>
       <td><%= board.id %></td>
       <td><%= board.name %></td>
