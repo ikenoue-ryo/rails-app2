@@ -48,7 +48,7 @@ class BoardsController < ApplicationController
   private
 
   def board_params
-    params.require(:board).permit(:name, :furigana, :age, :address, :tel, :email, :title, :body, tag_ids: []).merge(user_id: current_user.id)
+    params.require(:board).permit(:name, :furigana, :age, :address, :tel, :email, :title, :body, :booking, :booking_time, tag_ids: []).merge(user_id: current_user.id)
   end
 
   def set_target_board

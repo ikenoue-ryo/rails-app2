@@ -29,9 +29,10 @@
       <th><%= sortable "name", "Name" %></th>
       <th><%= sortable "age", "Age" %></th>
       <th><%= sortable "name", "Tag" %></th>
+      <th><%= sortable "booking", "Booking" %></th>
       <th><%= sortable "title", "Condition" %></th>
       <th><%= sortable "updated_at", "Updated Time" %></th>
-      <th><%= sortable "user_id", "Author" %></th>
+      <th><%= sortable "user_id", "Reception" %></th>
       <th></th>
       <th></th>
     </tr>
@@ -47,6 +48,11 @@
           <div class="mini ui button">
             <%= tag.name %>
           </div>
+        <% end %>
+      </td>
+      <td>
+        <% if board.booking %>
+          <%= board.booking.strftime('%m/%d') %>
         <% end %>
       </td>
       <td><%= board.title %></td>
