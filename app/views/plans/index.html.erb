@@ -1,0 +1,84 @@
+<h1>予約スケジュール</h1>
+
+<div class="content text-right">
+  <a class="js-modal-open ui blue label book_label" href="">
+    New
+  </a>
+</div>
+<div class="modal js-modal">
+  <div class="modal__bg js-modal-close">
+  </div>
+    <div class="modal__content">
+      <div>
+        <%= form_with(model: @plan, local: true) do |f| %>
+          <div class="">
+            <%= f.label :title %>
+            <%= f.text_field :title %>
+          </div>
+
+          <div class="">
+            <%= f.label :start_time %>
+            <%= f.text_field :start_time %>
+          </div>
+          
+          <div class="">
+            <%= f.label :content %>
+            <%= f.text_field :content %>
+          </div>
+
+          <div class="">
+            <%= f.submit %>
+          </div>
+        <% end %>
+      </div>
+      <a class="js-modal-close" href="">閉じる</a>
+  </div>
+</div>
+
+<%= month_calendar events: @plans do |date,plans| %>
+  <%= date.day %>
+
+  <% plans.each do |plan| %>
+    <div>
+      <%= link_to plan.title, plan %>
+    </div>
+  <% end %>
+<% end %>
+
+
+<p id="notice"><%= notice %></p>
+<table>
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>時間</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @plans.each do |plan| %>
+      <tr>
+        <td><%= plan.title %></td>
+        <td><%= plan.start_time.strftime("%Y-%m-%d %H:%M") %></td>
+        <td><%= link_to 'Show', plan %></td>
+        <td><%= link_to 'Edit', edit_plan_path(plan.id) %></td>
+        <td><%= link_to 'Destroy',plan_path(plan.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<script>
+  $(function(){
+      $('.js-modal-open').on('click',function(){
+          $('.js-modal').fadeIn();
+          return false;
+      });
+      $('.js-modal-close').on('click',function(){
+          $('.js-modal').fadeOut();
+          return false;
+      });
+  });
+</script>

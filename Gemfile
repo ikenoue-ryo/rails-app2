@@ -74,3 +74,4 @@ gem 'semantic-ui-sass'
 gem "bootstrap4-datetime-picker-rails"
 gem 'momentjs-rails'
 gem "font-awesome-rails"
+gem 'simple_calendar', '~> 2.0'
