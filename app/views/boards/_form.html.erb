@@ -39,31 +39,6 @@
     </div>
   </div>
 
-
-  <%# <label class="booking">Booking</label>
-  <div class="row">
-    <div class="col-3">
-      <div class="form-group">
-        <div class="input-group date" id="datePicker" data-target-input="nearest">
-          <input type="text" class="form-control form-control-sm datetimepicker-input" data-target="#datePicker"/>
-          <div class="input-group-append" data-target="#datePicker" data-toggle="datetimepicker">
-            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-3" style="position: relative; right: 15px;">
-      <div class="form-group">
-        <div class="input-group date" id="timePicker" data-target-input="nearest">
-          <input type="text" class="form-control form-control-sm datetimepicker-input" data-target="#timePicker"/>
-          <div class="input-group-append" data-target="#timePicker" data-toggle="datetimepicker">
-            <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> %>
-
 <%= f.date_field :booking %>
 <%= f.time_field :booking_time %>
 
@@ -89,11 +64,3 @@
 
   <%= f.submit '保存', class: 'ui submit button' %>
 <% end %>
-
-
-<script type="text/javascript">
-  $(function () {
-    $('#datePicker').datetimepicker({locale: 'ja', dayViewHeaderFormat: 'YYYY年M月' ,format: 'YYYY/MM/DD'});
-    $('#timePicker').datetimepicker({locale: 'ja', format: 'HH:mm'});
-  });
-</script>
