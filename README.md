@@ -3,9 +3,11 @@
 - rails: 5.2.2
 <!-- - pry-byebug: 3.9 -->
 
-## 起動コマンド
+## 起動コマンド(開発環境)
 - docker-compose build
 - docker-compose up -d
+- docker-compose exec web bundle exec rake db:migrate
+- docker-compose exec web bundle exec rake db:seed
 
 <!-- 
 ## 個人メモ

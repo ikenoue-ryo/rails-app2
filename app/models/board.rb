@@ -31,6 +31,4 @@ class Board < ApplicationRecord
   validates :tel, length: { maximum: 15 }
   validates :email, length: { maximum: 30 }
   validates :body, presence: true, length: { maximum: 1000 }
-  validates :booking, presence: true
-  validates :booking_time, presence: true
 end
