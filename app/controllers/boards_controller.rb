@@ -1,5 +1,6 @@
 class BoardsController < ApplicationController
   before_action :set_target_board, only: %i[show edit update destroy]
+  before_action :login_check
   helper_method :sort_column, :sort_direction
 
   def index
