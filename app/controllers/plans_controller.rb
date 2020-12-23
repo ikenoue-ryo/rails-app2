@@ -4,6 +4,9 @@ class PlansController < ApplicationController
     @plans = Plan.all
     # モーダル使用
     @plan = Plan.new
+
+    @boards = @boards.all.order(created_at: desc)
+    render 'boards/index'
   end
 
   def new

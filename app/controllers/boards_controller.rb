@@ -9,7 +9,7 @@ class BoardsController < ApplicationController
     @boards_order = Board.all.order(sort_column + ' ' + sort_direction)
     @booking_count = Board.all.count(:booking)
     @all_count = Board.all.count(:id)
-    @un_booking_count = @all_count - @booking_count  
+    @un_booking_count = @all_count - @booking_count
   end
 
   def new
