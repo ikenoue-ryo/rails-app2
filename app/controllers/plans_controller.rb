@@ -4,6 +4,7 @@ class PlansController < ApplicationController
     @plans = Plan.all
     # モーダル使用
     @plan = Plan.new
+
   end
 
   def new

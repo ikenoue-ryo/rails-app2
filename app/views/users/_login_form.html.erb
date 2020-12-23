@@ -1,17 +1,28 @@
-<h1>ログイン</h1>
+<div class="container">
+  <div class="signup_form box">
+    <h2>ログイン</h2>
 
-<%= form_with scope: :session, url: login_path do |f| %>
-  <div class="ui small form">
-  <div class="two fields">
-    <div class="field">
-      <label>ユーザー名</label>
-      <%= f.text_field :name %>
-    </div>
-    <div class="field">
-      <label>パスワード</label>
-      <%= f.password_field :password %>
-    </div>
+    <%= form_with scope: :session, url: login_path do |f| %>
+      <div class="ui small form grid form_g">
+        <div class="fields sixteen wide column form_column">
+          <div class="field my-3">
+            <label>ユーザー名</label>
+            <%= f.text_field :name %>
+          </div>
+          <div class="field my-3">
+            <label>パスワード</label>
+            <%= f.password_field :password %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form_submit">
+        <%= f.submit 'ログイン', class: 'ui submit button' %>
+      </div>
+
+        <p class="text-center my-4">
+          <%= link_to 'アカウント作成はこちら', new_user_path, class: '' %>
+        </p>
+    <% end %>
   </div>
-
-  <%= f.submit 'ログイン', class: 'ui submit button' %>
-<% end %>
+</div>

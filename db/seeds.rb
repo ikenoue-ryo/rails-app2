@@ -7,15 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 if Rails.env == 'development'
-  Tag.create([
-    { name: '初診' },
-    { name: '緊急' },
-    { name: '再診' },
-    { name: '定期' },
-    { name: '虫歯' },
-    { name: '抜歯' },
-  ])
-
   (1..50).each do |i|
     Board.create(
       name: "ユーザー#{i}",
@@ -31,4 +22,13 @@ if Rails.env == 'development'
       booking_time: "14:00",
     )
   end
+  
+  # Tag.create([
+  #   { name: '初診' },
+  #   { name: '緊急' },
+  #   { name: '再診' },
+  #   { name: '定期' },
+  #   { name: '虫歯' },
+  #   { name: '抜歯' },
+  # ])
 end

@@ -1,5 +1,6 @@
 class BoardsController < ApplicationController
   before_action :set_target_board, only: %i[show edit update destroy]
+  before_action :login_check
   helper_method :sort_column, :sort_direction
 
   def index
@@ -9,7 +10,7 @@ class BoardsController < ApplicationController
     @boards_order = Board.all.order(sort_column + ' ' + sort_direction)
     @booking_count = Board.all.count(:booking)
     @all_count = Board.all.count(:id)
-    @un_booking_count = @all_count - @booking_count  
+    @un_booking_count = @all_count - @booking_count
   end
 
   def new

@@ -11,29 +11,34 @@
     <div class="modal__content">
       <div>
         <%= form_with(model: @plan, local: true) do |f| %>
-          <div class="">
-            <%= f.label :title %>
-            <%= f.text_field :title %>
+          <div class="ui small form grid form_g">
+            <div class="fields sixteen wide column form_column">
+              <!-- タイトル -->
+              <div class="field my-3">
+                <%= f.label :title %>
+                <%= f.text_field :title %>
+              </div>
+              <!-- 予約日 -->
+              <%= f.label :start_time %>
+              <div class="two fields ml-0">
+              <!-- 予約日時 -->
+                  <%= f.datetime_field :start_time, :class => 'ui calendar four wide column mr-4', :id => "example3" %>
+              </div>
+              <!-- テキストエリア -->
+                <%= f.label :content %>
+                <%= f.text_area :content %>
+            </div>
           </div>
 
-          <div class="">
-            <%= f.label :start_time %>
-            <%= f.text_field :start_time %>
-          </div>
-          
-          <div class="">
-            <%= f.label :content %>
-            <%= f.text_field :content %>
-          </div>
-
-          <div class="">
-            <%= f.submit %>
+          <div class="form_submit text-center">
+            <%= f.submit '作成', class: 'ui submit button' %>
           </div>
         <% end %>
       </div>
-      <a class="js-modal-close" href="">閉じる</a>
   </div>
 </div>
+
+
 
 <%= month_calendar events: @plans do |date,plans| %>
   <%= date.day %>
@@ -44,6 +49,7 @@
     </div>
   <% end %>
 <% end %>
+
 
 
 <p id="notice"><%= notice %></p>
@@ -60,7 +66,6 @@
     <% @plans.each do |plan| %>
       <tr>
         <td><%= plan.title %></td>
-        <td><%= plan.start_time.strftime("%Y-%m-%d %H:%M") %></td>
         <td><%= link_to 'Show', plan %></td>
         <td><%= link_to 'Edit', edit_plan_path(plan.id) %></td>
         <td><%= link_to 'Destroy',plan_path(plan.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -81,4 +86,22 @@
           return false;
       });
   });
+</script>
+
+<script>
+$('#example1').calendar({
+  type: 'date',
+  formatter: {
+    date: function(date){
+      var day = ('0' + date.getDate()).slice(-2);
+      var month = ('0' + (date.getMonth() + 1)).slice(-2);
+      var year = date.getFullYear();
+      return year + '/' + month + '/' + day;
+    }
+  }
+});
+
+$('#example3').calendar({
+  type: 'time'
+});
 </script>

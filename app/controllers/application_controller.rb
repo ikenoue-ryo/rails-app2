@@ -8,4 +8,10 @@ class ApplicationController < ActionController::Base
     return unless session[:user_id]
     @current_user = User.find_by(id: session[:user_id])
   end
+
+  def login_check
+    if current_user.nil?
+      redirect_to root_url, danger: "ログインしてください"
+    end
+  end
 end
