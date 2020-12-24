@@ -1,9 +1,7 @@
 <h1>予約スケジュール</h1>
 
-ああ<%= @boards  %>
-
 <div class="content text-right">
-  <a class="js-modal-open ui blue label book_label" href="">
+  <a class="js-modal-open ui blue label book_label" href="/boards/new">
     New
   </a>
 </div>
@@ -39,19 +37,14 @@
   </div>
 </div>
 
-
-
-<%= month_calendar events: @plans do |date,plans| %>
+<%= month_calendar events: @boards_order do |date,plans| %>
   <%= date.day %>
-
   <% plans.each do |plan| %>
     <div>
-      <%= link_to plan.title, plan %>
+      <%= link_to plan.name, plan %>　<%= link_to plan.start_time.strftime('%H:%M'), plan %>
     </div>
   <% end %>
 <% end %>
-
-
 
 <p id="notice"><%= notice %></p>
 <table>
@@ -67,99 +60,49 @@
   </tbody>
 </table>
 
-
 <h2>本日の予約</h2>
 <table class="ui selectable striped table">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Tag</th>
-      <th>Booking</th>
-      <th>Condition</th>
-      <th>Update Time</th>
-      <th>Reception</th>
+      <th><%= sortable "id", "ID" %></th>
+      <th><%= sortable "name", "Name" %></th>
+      <th><%= sortable "age", "Age" %></th>
+      <th><%= sortable "name", "Tag" %></th>
+      <th><%= sortable "start_time", "Booking" %></th>
+      <th><%= sortable "title", "Condition" %></th>
+      <th><%= sortable "updated_at", "Updated Time" %></th>
+      <th><%= sortable "user_id", "Reception" %></th>
       <th></th>
       <th></th>
     </tr>
   </thead>
   <tbody>
+  <% @todays_booking.each do |board| %>
     <tr>
-      <td>1</td>
-      <td>テスト1</td>
-      <td>35</td>
-      <td>虫歯</td>
-      <td>12/25</td>
-      <td>歯が痛い</td>
-      <td>12/23 19:00</td>
-      <td>kou</td>
-      <td><%= link_to '詳細' %></td>
-      <td><%= link_to '削除' %></td>
+      <td><%= board.id %></td>
+      <td><%= board.name %></td>
+      <td><%= board.age %></td>
+      <td>
+        <% board.tags.each do |tag| %>
+          <div class="mini ui button">
+            <%= tag.name %>
+          </div>
+        <% end %>
+      </td>
+      <td>
+        <% if board.start_time %>
+          <%= board.start_time.strftime('%m/%d') %>
+        <% end %>
+      </td>
+      <td><%= board.title %></td>
+      <td><%= board.updated_at.to_s(:datetime_jp) %></td>
+      <td><%= board.user.name %></td>
+      <td><%= link_to '詳細', board %></td>
+      <td><%= link_to '削除', board, method: :delete %></td>
     </tr>
-    <tr>
-      <td>2</td>
-      <td>テスト1</td>
-      <td>35</td>
-      <td>虫歯</td>
-      <td>12/25</td>
-      <td>歯が痛い</td>
-      <td>12/23 19:00</td>
-      <td>kou</td>
-      <td><%= link_to '詳細' %></td>
-      <td><%= link_to '削除' %></td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>テスト1</td>
-      <td>35</td>
-      <td>虫歯</td>
-      <td>12/25</td>
-      <td>歯が痛い</td>
-      <td>12/23 19:00</td>
-      <td>kou</td>
-      <td><%= link_to '詳細' %></td>
-      <td><%= link_to '削除' %></td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>テスト1</td>
-      <td>35</td>
-      <td>虫歯</td>
-      <td>12/25</td>
-      <td>歯が痛い</td>
-      <td>12/23 19:00</td>
-      <td>kou</td>
-      <td><%= link_to '詳細' %></td>
-      <td><%= link_to '削除' %></td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>テスト1</td>
-      <td>35</td>
-      <td>虫歯</td>
-      <td>12/25</td>
-      <td>歯が痛い</td>
-      <td>12/23 19:00</td>
-      <td>kou</td>
-      <td><%= link_to '詳細' %></td>
-      <td><%= link_to '削除' %></td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>テスト1</td>
-      <td>35</td>
-      <td>虫歯</td>
-      <td>12/25</td>
-      <td>歯が痛い</td>
-      <td>12/23 19:00</td>
-      <td>kou</td>
-      <td><%= link_to '詳細' %></td>
-      <td><%= link_to '削除' %></td>
-    </tr>
+  <% end %>
   </tbody>
 </table>
-
 
 
 <script>
