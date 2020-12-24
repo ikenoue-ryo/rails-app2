@@ -30,10 +30,6 @@
 - viewを作成　自分でディレクトリとファイルを作る
 - 手順: routeの追加、controllerの追加、htmlの追加
 
-- メモ
-マイグレーションでカラムを追加
-1. docker-compose run web bundle exec rails g migration AddColumnToUserid user_id:integer
-2. 作成ファイルのテーブル名とあっているかを確認して、db:migrate
-
 ルート： http://localhost:3001/rails/info/routes
+メール： http://localhost:3000/letter_opener
  -->

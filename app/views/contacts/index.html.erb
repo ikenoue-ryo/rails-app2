@@ -1,0 +1,25 @@
+<h1>Contacts</h1>
+
+<%= link_to 'New', new_contact_path, class: 'ui button' %>
+
+<table class="ui selectable striped table">
+  <tbody>
+      <tr>
+        <td>名前</td>
+        <td>メールアドレス</td>
+        <td>本文</td>
+        <td>送信日</td>
+      </tr>
+      <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= contact.name %></td>
+        <td><%= contact.email %></td>
+        <td><%= contact.content %></td>
+        <td><%= contact.created_at.to_s(:datetime_jp) %></td>
+        <td><%= link_to '詳細', contact %></td>
+        <td><%= link_to '削除', contact, method: :delete %></td>
+      </tr>
+    <% end %>
+    </tbody>
+</table>
+
