@@ -1,9 +1,6 @@
 <h1>予約スケジュール</h1>
 
-<% @boards.each do |boards| %>
-      <%= boards.id %>
-<% end %>
-
+ああ<%= @boards  %>
 
 <div class="content text-right">
   <a class="js-modal-open ui blue label book_label" href="">
@@ -26,7 +23,6 @@
               <!-- 予約日 -->
               <%= f.label :start_time %>
               <div class="two fields ml-0">
-              <!-- 予約日時 -->
                   <%= f.datetime_field :start_time, :class => 'ui calendar four wide column mr-4', :id => "example3" %>
               </div>
               <!-- テキストエリア -->

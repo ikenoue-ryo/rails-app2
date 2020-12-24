@@ -4,9 +4,6 @@ class PlansController < ApplicationController
     @plans = Plan.all
     # モーダル使用
     @plan = Plan.new
-
-    @boards = @boards.all
-    render template: 'boards/index'
   end
 
   def new

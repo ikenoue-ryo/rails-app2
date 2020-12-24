@@ -8,7 +8,7 @@ class BoardsController < ApplicationController
     @boards = @boards.page(params[:page]).order('created_at DESC')
 
     @boards_order = Board.all.order(sort_column + ' ' + sort_direction)
-    @booking_count = Board.all.count(:booking)
+    @booking_count = Board.all.count(:start_time)
     @all_count = Board.all.count(:id)
     @un_booking_count = @all_count - @booking_count
   end
@@ -52,7 +52,7 @@ class BoardsController < ApplicationController
   private
 
   def board_params
-    params.require(:board).permit(:name, :furigana, :age, :address, :tel, :email, :title, :body, :booking, :booking_time, tag_ids: []).merge(user_id: current_user.id)
+    params.require(:board).permit(:name, :furigana, :age, :address, :tel, :email, :title, :body, :start_time, tag_ids: []).merge(user_id: current_user.id)
   end
 
   def set_target_board

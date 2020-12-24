@@ -25,6 +25,7 @@
 - テスト実行: docker-compose exec web bundle exec rspec ./spec/models/
 - オプション付き: docker-compose exec web bundle exec rspec -f d spec/models/
 - コントローラテスト: docker-compose exec web rspec -f d spec/controllers/
+- カラムを増やす: docker-compose run web bundle exec rails g migration AddColumnToBoards start_time:datetime
 
 - コントローラ作成 自分でファイルを作る
 - viewを作成　自分でディレクトリとファイルを作る
