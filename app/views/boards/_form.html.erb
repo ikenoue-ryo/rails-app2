@@ -1,66 +1,101 @@
 <%= render 'shared/error_messages' %>
 
 <%= form_with model: board do |f| %>
-  <div class="ui small form">
-    <div class="two fields">
-      <div class="field">
-        <label>Name</label>
-        <%= f.text_field :name %>
-      </div>
-      <div class="field">
-        <label>ふりがな</label>
-        <%= f.text_field :furigana %>
-      </div>
-      <div class="field">
-        <label>年齢</label>
-        <%= f.text_field :age %>
-      </div>
-      <div class="field">
-        <label>症状</label>
-        <%= f.text_field :title %>
-      </div>
-    </div>
-  </div>
-
-  <div class="ui small form">
-    <div class="two fields">
-      <div class="field">
-        <label>Address</label>
-        <%= f.text_field :address %>
-      </div>
-      <div class="field">
-        <label>TEL</label>
-        <%= f.text_field :tel %>
-      </div>
-      <div class="field">
-        <label>E-mail</label>
-        <%= f.text_field :email %>
-      </div>
-    </div>
-  </div>
-
-<%= f.date_field :booking %>
-<%= f.time_field :booking_time %>
-
-<div class="form-group">
-  <p>Tag</p>
-  <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
-    <div class="form-check">
-      <%= tag.label do %>
-        <%= tag.check_box class: 'form-check-input' %>
-        <%= tag.text %>
-      <% end %>
-    </div>
-  <% end %>
-</div>
-
-  <div class="ui form">
+<div class="ui warning form segment post_form">
+  <div class="three fields">
     <div class="field">
-      <label>Text</label>
-      <%= f.text_area :body, rows: 10 %>
+      <label>Name</label>
+      <%= f.text_field :name, :placeholder => "名前" %>
+    </div>
+    <div class="field">
+      <label>Furigana</label>
+      <%= f.text_field :furigana, :placeholder => "ふりがな" %>
+    </div>
+    <div class="field">
+      <label>Age</label>
+      <%= f.text_field :age, :placeholder => "年齢" %>
     </div>
   </div>
-  <br>
+  <div class="three fields">
+    <div class="field">
+      <label>Address</label>
+      <%= f.text_field :address, :placeholder => "住所" %>
+    </div>
+    <div class="field">
+      <label>Tel</label>
+      <%= f.text_field :tel, :placeholder => "Tel" %>
+    </div>
+    <div class="field">
+      <label>E-mail</label>
+      <%= f.text_field :email, :placeholder => "Email" %>
+    </div>
+  </div>
+  <div class="one fields">
+    <div class="field">
+      <label>Booking</label>
+      <%= f.datetime_field :start_time, :class => 'ui calendar four wide column mr-4', :id => "example3" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <p>Tag</p>
+    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+      <div class="form-check">
+        <%= tag.label do %>
+          <%= tag.check_box class: 'form-check-input' %>
+          <%= tag.text %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="one fields">
+    <div class="field">
+      <label>Condition</label>
+      <%= f.text_field :title, :placeholder => "タイトル" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="twelve field">
+      <label>Impressions</label>
+      <%= f.text_area :body, rows: 10, :placeholder => "症状" %>
+    </div>
+  </div>
 
   <%= f.submit '保存', class: 'ui submit button' %>
+</div>
 <% end %>
+
+
+
+<script>
+  $(function(){
+      $('.js-modal-open').on('click',function(){
+          $('.js-modal').fadeIn();
+          return false;
+      });
+      $('.js-modal-close').on('click',function(){
+          $('.js-modal').fadeOut();
+          return false;
+      });
+  });
+</script>
+
+<script>
+$('#example1').calendar({
+  type: 'date',
+  formatter: {
+    date: function(date){
+      var day = ('0' + date.getDate()).slice(-2);
+      var month = ('0' + (date.getMonth() + 1)).slice(-2);
+      var year = date.getFullYear();
+      return year + '/' + month + '/' + day;
+    }
+  }
+});
+
+$('#example3').calendar({
+  type: 'time'
+});
+</script>

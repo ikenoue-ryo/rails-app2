@@ -30,7 +30,7 @@
                 <th><%= sortable "name", "Name" %></th>
                 <th><%= sortable "age", "Age" %></th>
                 <th><%= sortable "name", "Tag" %></th>
-                <th><%= sortable "booking", "Booking" %></th>
+                <th><%= sortable "start_time", "Booking" %></th>
                 <th><%= sortable "title", "Condition" %></th>
                 <th><%= sortable "updated_at", "Updated Time" %></th>
                 <th><%= sortable "user_id", "Reception" %></th>
@@ -52,8 +52,8 @@
                   <% end %>
                 </td>
                 <td>
-                  <% if board.booking %>
-                    <%= board.booking.strftime('%m/%d') %>
+                  <% if board.start_time %>
+                    <%= board.start_time.strftime('%m/%d') %>
                   <% end %>
                 </td>
                 <td><%= board.title %></td>
@@ -97,7 +97,7 @@
       <th><%= sortable "name", "Name" %></th>
       <th><%= sortable "age", "Age" %></th>
       <th><%= sortable "name", "Tag" %></th>
-      <th><%= sortable "booking", "Booking" %></th>
+      <th><%= sortable "start_time", "Booking" %></th>
       <th><%= sortable "title", "Condition" %></th>
       <th><%= sortable "updated_at", "Updated Time" %></th>
       <th><%= sortable "user_id", "Reception" %></th>
@@ -119,8 +119,8 @@
         <% end %>
       </td>
       <td>
-        <% if board.booking %>
-          <%= board.booking.strftime('%m/%d') %>
+        <% if board.start_time %>
+          <%= board.start_time.strftime('%m/%d') %>
         <% end %>
       </td>
       <td><%= board.title %></td>

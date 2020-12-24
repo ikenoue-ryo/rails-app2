@@ -33,3 +33,13 @@
 #example1{
   padding: 8px;
 }
+
+.simple-calendar{
+  table{
+    td { 
+      height: 100px!important;
+      width: 14.28%!important;
+      overflow: hidden!important;
+    }
+  }
+}

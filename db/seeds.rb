@@ -18,8 +18,7 @@ if Rails.env == 'development'
       address: "福岡県福岡市博多区#{i}",
       tel: "0801234567#{i}",
       email: "test@gmail.com",
-      booking: "2020-12-29",
-      booking_time: "14:00",
+      start_time: "2020-12-29 14:00"
     )
   end
   

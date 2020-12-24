@@ -74,7 +74,7 @@ input[type=checkbox] {
   position: relative;
   top: 100px;
   transform: translate(-50%, 1%);
-  width: 80%;
+  width: 80%!important;
   overflow-y: auto;
   max-height: 80%;
 }
@@ -89,4 +89,9 @@ input[type=checkbox] {
     display: inline;
     margin-left: 10px;
   }
+}
+
+// フォーム
+.post_form{
+  padding: 50px!important;
 }

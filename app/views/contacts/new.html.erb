@@ -1,0 +1,19 @@
+<h1>新規作成</h1>
+<a href="/boards">
+  <%= link_to 'List', contacts_path, class: 'ui right floated button' %>
+</a>
+<br><br>
+
+<%= form_for @contact do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+
+  <%= f.submit '保存', class: 'ui submit button' %>
+
+<% end %>
